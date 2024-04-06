@@ -1,0 +1,15 @@
+[Unit]
+Description=Bot Discord Zenith
+After=network.target
+
+[Service]
+Environment=TOKEN=<myToken>
+User=clement
+Group=clement
+Type=simple
+ExecStart=node /home/clement/bot_discord_zenith/src/main.js
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
