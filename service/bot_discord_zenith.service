@@ -3,11 +3,11 @@ Description=Bot Discord Zenith
 After=network.target
 
 [Service]
-Environment=TOKEN=<myToken>
-User=clement
-Group=clement
+Environment=NODE_ENV=production
+User=louis
+Group=louis
 Type=simple
-ExecStart=node /home/clement/bot_discord_zenith/src/main.js
+ExecStart=/home/louis/.nvm/versions/node/v20.11.0/bin/node /home/louis/Documents/bot_discord_zenith/src/main.js
 Restart=on-failure
 RestartSec=10s
 
