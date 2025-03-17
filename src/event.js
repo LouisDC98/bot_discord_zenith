@@ -55,7 +55,7 @@ export async function getEvent(isDaily) {
 // sanitize data
 export function format(data, dailyMode) {
     //////////////////////////delete false data//////////////////////////
-    let entryToDelete = "CASSE-NOISETTE"
+    let entryToDelete = "STAR ACADEMY"
     let index = data.findIndex(e => e.artist === entryToDelete)
     if (index !== -1) {
         data.splice(index, 1);
