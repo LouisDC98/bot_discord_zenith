@@ -39,7 +39,7 @@ export async function getEvent(isDaily) {
                 } else {
                     eventList.push({
                         artist: event.record.fields.nom_de_la_manifestation,
-                        date: new Date(event.record.fields.date_debut).toLocaleDateString('fr-FR', { weekday: 'long'}),
+                        date: new Date(event.record.fields.date_debut).toLocaleDateString('fr-FR', { weekday: 'long' }),
                     })
                 }
             }
@@ -55,14 +55,18 @@ export async function getEvent(isDaily) {
 // sanitize data
 export function format(data, dailyMode) {
     //////////////////////////delete false data//////////////////////////
-    let entryToDelete = "STAR ACADEMY"
-    let index = data.findIndex(e => e.artist === entryToDelete)
-    if (index !== -1) {
-        data.splice(index, 1);
-    }
+    let entriesToDelete = ["STAR ACADEMY", "LE LAC DES CYGNES"];
+
+    entriesToDelete.forEach(entry => {
+        let index = data.findIndex(e => e.artist.toLowerCase() === entry.toLowerCase());
+        if (index !== -1) {
+            data.splice(index, 1);
+        }
+    });
+
     //////////////////////////delete false data//////////////////////////
 
-    if(data.length <= 0){
+    if (data.length <= 0) {
         return ''
     }
 
